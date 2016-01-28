@@ -1,0 +1,36 @@
+<md-toolbar class="md-primary md-whiteframe-z3">
+  <div class="md-toolbar-tools">
+    {{'AddUser' | translate}}
+  </div>
+</md-toolbar>
+<div ng-if="!confirmScreen">
+  <md-input-container style="width: 100%">
+    <label>{{'Search' | translate}}</label>
+    <input type="text" ng-model="query">
+  </md-input-container>
+
+  <md-list class="md-padding">
+    <div ng-repeat="contact in contacts | filter:query | filter:filterAlreadyAdded | orderBy:['firstname', 'lastname']">
+      <md-list-item>
+        <md-button style="width:100%" ng-click="add(contact)">
+          <div class="md-list-item-text">
+            <account account="contact"/>
+          </div>
+        </md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+    </div>
+  </md-list>
+</div>
+
+<div ng-if="confirmScreen" class="md-padding">
+  <md-content>
+    <p translate="Would you like to add to chat"
+         translate-value-account="<strong>{{selectedAccount.firstname + ' ' + selectedAccount.lastname}}</strong>"
+         translate-value-chat="<strong>{{chat.name}}</strong>"></p>
+  </md-content>
+  <md-dialog-actions>
+    <md-button ng-click="confirm(selectedAccount)">{{'Yes' | translate}}</md-button>
+    <md-button ng-click="cancel()">{{'No' | translate}}</md-button>
+  </md-dialog-actions>
+</div>

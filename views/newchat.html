@@ -1,0 +1,39 @@
+<md-toolbar class="md-primary md-whiteframe-z3">
+  <div class="md-toolbar-tools">
+    <md-button layout="row" layout-align="start center" ui-sref="layout_2screens.contacts">
+      <md-icon>arrow_back</md-icon>
+      {{'NewChat' | translate}}
+    </md-button>
+    <span flex></span>
+    <md-button ng-click="createChat()">
+      <md-icon>check</md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
+<md-content class="md-padding">
+  <md-chips>
+    <md-chip ng-repeat="account in selectedAccounts" ng-click="removeUser(account)" style="cursor: pointer">
+      <span><account account="account" /></span>
+    </md-chip>
+  </md-chips>
+
+  <md-input-container style="width: 100%">
+    <label >{{'Search' | translate}}</label>
+    <input type="text" ng-model="query">
+  </md-input-container>
+</md-content>
+
+
+<md-list class="md-padding">
+  <div ng-repeat="contact in contacts | filter:query | filter:filterOwnUser | filter:filterAlreadyAdded | orderBy:['firstname', 'lastname']">
+    <md-list-item>
+      <md-button style="width:100%" ng-click="addUser(contact)">
+        <div class="md-list-item-text">
+          <account account="contact" />
+        </div>
+      </md-button>
+    </md-list-item>
+    <md-divider></md-divider>
+  </div>
+</md-list>

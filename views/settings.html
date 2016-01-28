@@ -1,0 +1,45 @@
+<md-toolbar class="md-primary md-whiteframe-z3">
+<div class="md-toolbar-tools">
+  <md-button layout="row" layout-align="start center" ui-sref="layout_2screens.contacts">
+    <md-icon>arrow_back</md-icon>
+    {{'Settings' | translate}}
+  </md-button>
+  <span flex></span>
+  <md-button layout="row" layout-align="start center" ng-click="save()">
+    <md-icon>check</md-icon>
+  </md-button>
+</div>
+</md-toolbar>
+
+<md-content ng-if="!confirmPwPopup" class="md-padding">
+  <md-input-container style="width: 100%">
+    <label>{{'Name' | translate}}</label>
+    <input type="text" ng-model="user.lastname">
+  </md-input-container>
+  <md-input-container style="width: 100%">
+    <label>{{'FirstName' | translate}}</label>
+    <input type="text" ng-model="user.firstname">
+  </md-input-container>
+  <md-input-container style="width: 100%">
+    <label>{{'Relation' | translate}}</label>
+    <input type="text" ng-model="user.courseID">
+  </md-input-container>
+  <md-input-container style="width: 100%">
+    <label>{{'Phone' | translate}}</label>
+    <input type="text" ng-model="user.phone">
+  </md-input-container>
+  <md-button class="md-raised" ui-sref="layout_small.changepw">
+    {{'ChangePW' | translate}}
+  </md-button>
+  </md-input-container>
+  <md-button class="md-raised md-warn" ui-sref="layout_small.deleteaccount">
+    {{'DeleteAcc' | translate}}
+  </md-button>
+</md-content>
+
+<md-content ng-if="confirmPwPopup">
+  <md-input-container style="width: 100%">
+    <label>{{'PW' | translate}}</label>
+    <input type="password" ng-model="user.passwordConfirm">
+  </md-input-container>
+</md-content>

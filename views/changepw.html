@@ -1,0 +1,28 @@
+<md-toolbar class="md-primary md-whiteframe-z3">
+  <div class="md-toolbar-tools">
+    <md-button layout="row" layout-align="start center" ui-sref="layout_small.settings">
+      <md-icon>arrow_back</md-icon>
+      {{'ChangePW' | translate}}
+    </md-button>
+    <span flex></span>
+    <md-button ng-click="confirm()">
+      <md-icon>check</md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
+<md-content class="md-padding">
+  <md-input-container style="width: 100%">
+    <label>{{'OldPW' | translate}}</label>
+    <input type="password" ng-model="user.oldPW">
+  </md-input-container>
+  <md-input-container style="width: 100%">
+    <label>{{'NewPW' | translate}}</label>
+    <input type="password" ng-model="user.newPW">
+  </md-input-container>
+  <md-input-container style="width: 100%">
+    <label>{{'ConfirmNewPW' | translate}}</label>
+    <input type="password" ng-model="user.confirmNewPW">
+  </md-input-container>
+</md-content>
+

@@ -1,0 +1,30 @@
+<md-sidenav md-component-id="left" class="md-sidenav-left" md-is-open="false"
+            ng-include="'views/sidenav.html'"></md-sidenav>
+
+<md-toolbar xmlns="http://www.w3.org/1999/html">
+  <div class="md-toolbar-tools md-whiteframe-z4">
+    <img class="logo" src="images/hwr_quadrat.9a53ca6d.png"> HWR-Chat
+    <span flex></span>
+    <md-button ng-click="openSideNav()">
+      <md-icon>menu</md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+<div>
+  <md-button class="md-primary md-fab md-fab-bottom-left" aria-label="FAB" ui-sref="layout_small.newchat">
+    <md-icon>create</md-icon>
+  </md-button>
+</div>
+
+<md-content style="position:absolute; top:64px; bottom:0" class="md-padding" ng-style="{'width' : (isMobile ? '100%' : '33%')}" scrollable>
+  <md-list>
+    <md-list-item ng-repeat="chat in chats | orderBy:'-lastMessage'">
+          <md-button class="md-warn" ng-click="openChat(chat.id)" style="width: 100%">
+            {{chat.name}}
+          </md-button>
+    </md-list-item>
+  </md-list>
+</md-content>
+
+
+

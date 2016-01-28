@@ -1,0 +1,16 @@
+<md-toolbar class="md-primary md-whiteframe-z3">
+  <div class="md-toolbar-tools">
+    <md-button layout="row" layout-align="start center" ng-click="back()">
+      <md-icon>arrow_back</md-icon>
+      {{'Info' | translate}}
+    </md-button>
+    <span flex></span>
+  </div>
+</md-toolbar>
+
+<md-content class="md-padding">
+    <h3>{{'LegalInfo' | translate}}</h3>
+    <p translate="LegalContent" translate-values="{{ LegalContent }}"></p>
+    <h3>{{'PrivacyStatement' | translate}}</h3>
+    <p translate="PrivacyContent" translate-values="{{ PrivacyContent }}"></p>
+</md-content>

@@ -1,0 +1,15 @@
+<md-dialog>
+
+  <md-dialog-content class="md-padding">
+    <form ng-submit="createChat()">
+      <md-input-container  style="width: 100%">
+        <label>{{'Groupname' | translate}}</label>
+        <input type="text" ng-model="name" required>
+      </md-input-container>
+    </form>
+    <md-button class="md-actions" ng-click="closeDialog()">{{'Quit' | translate}}</md-button>
+    <md-button class="md-actions md-primary" ng-disabled="name==null" ng-click="createChat()">
+      {{'CreateChat' | translate}}
+    </md-button>
+  </md-dialog-content>
+</md-dialog>
